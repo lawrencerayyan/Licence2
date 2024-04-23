@@ -1,6 +1,6 @@
 # Licence2
 
-#  Première Année - Licence Informatique
+#  Deuxième Année - Licence Informatique
 Bienvenue sur mon dépôt GitHub contenant mes travaux réalisés lors de ma deuxième année de licence en informatique.
 
 ## Contenu du Répertoire
