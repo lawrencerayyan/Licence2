@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=exo3
+comment1.params=tab\ n
+comment1.target=int\ recherche_max_recusif(int[],\ int)
+comment2.params=tab\ n
+comment2.target=int\ somme_recusif(int[],\ int)
+comment3.params=tab\ n\ res
+comment3.target=int\ somme_recusif_terminal(int[],\ int,\ int)
+numComments=4

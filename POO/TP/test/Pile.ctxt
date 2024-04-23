@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Pile
+comment1.params=
+comment1.target=Pile\ inisialiserPile()
+comment2.params=p
+comment2.target=boolean\ estPileVide(Pile)
+comment3.params=p\ x
+comment3.target=void\ empiler(Pile,\ int)
+comment4.params=p\ x
+comment4.target=void\ depiler(Pile,\ int)
+comment5.params=p
+comment5.target=int\ sommet(Pile)
+comment6.params=p
+comment6.target=void\ afficherPile(Pile)
+numComments=7

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Date
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Date\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=jour\ mois\ annee
+comment1.target=Date(java.lang.String,\ java.lang.String,\ int)
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Date\r\n
+numComments=2

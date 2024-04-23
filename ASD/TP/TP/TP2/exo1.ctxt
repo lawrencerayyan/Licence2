@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=exo1
+comment1.params=
+comment1.target=exo1()
+comment2.params=n
+comment2.target=int\ somme_recusif(int)
+comment3.params=n\ res
+comment3.target=int\ somme_recusif_bis(int,\ int)
+numComments=4

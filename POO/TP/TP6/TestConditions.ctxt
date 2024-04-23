@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=TestConditions
+comment1.params=list\ n
+comment1.target=void\ remplitAlea(java.util.ArrayList,\ int)
+comment2.params=list\ cond\ bool
+comment2.target=int\ length(java.util.ArrayList,\ Condition,\ boolean)
+numComments=3

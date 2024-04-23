@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Racine
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Racine\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=precision
+comment1.target=Racine(double)
+comment2.params=operande
+comment2.target=double\ racine(double)
+comment3.params=
+comment3.target=double\ getPrecision()
+comment4.params=precision
+comment4.target=void\ setPrecision(double)
+numComments=5

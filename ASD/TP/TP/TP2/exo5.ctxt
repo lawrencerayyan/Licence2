@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=exo5
+comment1.params=tab\ f\ l\ val
+comment1.target=int\ recherche_dicho(int[],\ int,\ int,\ int)
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=tableau\ deb\ fin
+comment3.target=void\ triFusion(int[],\ int,\ int)
+comment4.params=tableau\ deb1\ fin1\ fin2
+comment4.target=void\ fusion(int[],\ int,\ int,\ int)
+comment5.params=tableau
+comment5.target=void\ triRapide(int[])
+comment6.params=tab\ i\ j
+comment6.target=void\ echanger(int[],\ int,\ int)
+comment7.params=tableau\ deb\ fin
+comment7.target=int\ partition(int[],\ int,\ int)
+comment8.params=tableau\ deb\ fin
+comment8.target=void\ triRapide(int[],\ int,\ int)
+numComments=9

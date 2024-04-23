@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Produit
+comment1.params=Nom\ p\u00E9rem
+comment1.target=Produit(java.lang.String,\ java.util.Date)
+comment1.text=private\ T\ ALIMENTAIRE,MAISON,VETEMENT;
+comment2.params=
+comment2.target=java.lang.String\ getNom()
+comment3.params=
+comment3.target=java.util.Date\ getDate()
+comment4.params=obj
+comment4.target=boolean\ equals(java.lang.Object)
+numComments=5

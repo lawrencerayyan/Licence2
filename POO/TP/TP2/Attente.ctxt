@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Attente
+comment1.params=duree
+comment1.target=Attente(long)
+comment2.params=
+comment2.target=boolean\ tempsDepasse()
+comment3.params=
+comment3.target=void\ attendFin()
+comment4.params=nanoseconds
+comment4.target=void\ nanosleep(long)
+numComments=5

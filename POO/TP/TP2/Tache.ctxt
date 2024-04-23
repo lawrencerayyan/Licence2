@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Tache
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Tache\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=date\ Description
+comment1.target=Tache(long,\ java.lang.String)
+comment2.params=
+comment2.target=boolean\ estFini()
+comment3.params=
+comment3.target=java.lang.String\ printTache()
+comment4.params=
+comment4.target=double\ tempsRestantenscd()
+comment5.params=
+comment5.target=double\ tempsRestantenmin()
+comment6.params=
+comment6.target=double\ tempsRestantenh()
+comment7.params=
+comment7.target=double\ tempsRestantenjour()
+numComments=8

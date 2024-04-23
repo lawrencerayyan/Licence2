@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=GestionnaireDeTache
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ GestionnaireDeTache\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=
+comment1.target=GestionnaireDeTache()
+comment10.params=tache
+comment10.target=Tache[]\ tachesPosterieur(Tache)
+comment2.params=jour\ Description
+comment2.target=Tache\ tacheAccomplieJour(long,\ java.lang.String)
+comment3.params=heure\ Description
+comment3.target=Tache\ tacheAccomplieHeure(long,\ java.lang.String)
+comment4.params=minute\ Description
+comment4.target=Tache\ tacheAccomplieMinute(long,\ java.lang.String)
+comment5.params=seconde\ Description
+comment5.target=Tache\ tacheAccomplieSeconde(long,\ java.lang.String)
+comment6.params=tache
+comment6.target=void\ ajouter(Tache)
+comment7.params=
+comment7.target=void\ affichage()
+comment8.params=
+comment8.target=void\ retireTache()
+comment9.params=
+comment9.target=Tache[]\ tachesDepass\u00E9es()
+numComments=11

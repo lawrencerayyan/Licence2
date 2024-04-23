@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=ListeChainee
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ ListeChainee\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=x
+comment1.target=void\ insere(java.lang.String)
+comment2.params=y
+comment2.target=void\ ajouter(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ supprime()
+comment4.params=
+comment4.target=java.lang.String\ premier()
+comment5.params=
+comment5.target=java.lang.String\ dernier()
+numComments=6

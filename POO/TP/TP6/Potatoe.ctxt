@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Potatoe
+comment1.params=weight
+comment1.target=Potatoe(double)
+comment2.params=weight\ yeux
+comment2.target=Potatoe(double,\ int)
+comment3.params=
+comment3.target=void\ format()
+comment4.params=
+comment4.target=double\ getWeight()
+comment5.params=
+comment5.target=int\ getEyes()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

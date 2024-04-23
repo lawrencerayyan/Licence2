@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Maison
+comment1.params=c\ d\ e\ f\ h\ i
+comment1.target=Maison(double,\ double,\ double,\ double,\ double,\ double)
+comment2.params=D
+comment2.target=void\ draw(fr.lacl.cpo.Drawing)
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

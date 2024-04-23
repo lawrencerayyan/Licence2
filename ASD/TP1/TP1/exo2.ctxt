@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=exo2
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=tab
+comment2.target=void\ somme(int[])
+comment3.params=tab\ index
+comment3.target=int\ sommeRec(int[],\ int)
+comment4.params=tab
+comment4.target=int\ ELtpairTableau(int[])
+comment5.params=tab\ elt
+comment5.target=int\ OccurrenceTableau(int[],\ int)
+comment6.params=tab\ taille
+comment6.target=int\ Eltpair_tab_rec(int[],\ int)
+comment7.params=tab\ index
+comment7.target=int\ ELtpairTableauRec(int[],\ int)
+comment8.params=tab
+comment8.target=void\ random(int[])
+comment9.params=tab
+comment9.target=void\ affichage(int[])
+numComments=10

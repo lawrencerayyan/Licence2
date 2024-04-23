@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Cc1
+comment1.params=p1\ p2
+comment1.target=Cc1(Point,\ Point)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=
+comment3.target=void\ main()
+numComments=4

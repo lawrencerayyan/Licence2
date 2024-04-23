@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=PC
+comment1.params=nom\ NDM\ annee\ IP\ nom_salle
+comment1.target=PC(java.lang.String,\ int,\ int,\ float[],\ java.lang.String)
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ PC\r\n
+numComments=2

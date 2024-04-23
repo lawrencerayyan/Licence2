@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Machin
+comment1.params=m1\ m2
+comment1.target=Machin(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ GetM1()
+comment3.params=
+comment3.target=java.lang.String\ GetM2()
+comment4.params=m1
+comment4.target=void\ SetM1(java.lang.String)
+comment5.params=m2
+comment5.target=void\ SetM2(java.lang.String)
+comment6.params=x\ y
+comment6.target=Machin\ combiner(Machin,\ Machin)
+numComments=7

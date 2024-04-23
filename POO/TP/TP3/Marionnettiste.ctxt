@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Marionnettiste
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Marionnettiste\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=ennemy
+comment1.target=void\ attaquer(Personnage)
+comment2.params=personne
+comment2.target=Marionnettiste(Personnage)
+comment2.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Marionnettiste\r\n
+numComments=3

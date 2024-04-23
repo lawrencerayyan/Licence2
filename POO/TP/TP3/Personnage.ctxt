@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Personnage
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Personne\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=nom_personne\ arme_main\ arme_poche
+comment1.target=Personnage(java.lang.String,\ Arme,\ Arme)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=ennemy
+comment3.target=void\ attaque(Personnage)
+comment4.params=
+comment4.target=void\ swap()
+comment5.params=
+comment5.target=void\ newArme()
+comment6.params=
+comment6.target=Personnage()
+comment6.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Personne\r\n
+numComments=7

@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Point
+comment0.text=\r\n\ La\ class\ Point\ est\ pour\ pr\u00E9senter\ un\ point\ .\r\n\ elle\ contient\ les\ coordonn\u00E9es,\ la\ couleur\ et\ l'epaisseur\r\n\ @author\ (AL\ RAYYAN\ Lawrence)\r\n\ @version\ (18/11/2022\ \u00E0\ 14h00)\r\n
+comment1.params=x\ y\ r\ g\ b\ epaisseur
+comment1.target=Point(double,\ double,\ double,\ double,\ double,\ double)
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Point\r\n
+comment2.params=d
+comment2.target=void\ draw(fr.lacl.cpo.Drawing)
+comment2.text=\r\n\ Initialiser\ un\ point\ \u00E0\ l'origine\r\n
+comment3.params=x\ y
+comment3.target=Point(double,\ double)
+comment3.text=\r\n\ Initialiser\ un\ point\ \u00E0\ x\ et\ y\r\n
+comment4.params=p
+comment4.target=void\ setX(int)
+comment4.text=\r\n\ Methode\ qui\ affecte\ la\ valeur\ de\ son\ param\u00E8tre\ \r\n\ au\ Point\ this.\r\n
+comment5.params=p
+comment5.target=void\ setY(int)
+comment6.params=
+comment6.target=double\ getX()
+comment7.params=
+comment7.target=double\ getY()
+comment8.params=args
+comment8.target=void\ main(java.lang.String[])
+numComments=9

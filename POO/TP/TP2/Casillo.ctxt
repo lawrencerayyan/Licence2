@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Casillo
+comment1.params=
+comment1.target=Casillo()
+comment2.params=
+comment2.target=Chronometre\ chronometre()
+comment3.params=duree
+comment3.target=Attente\ attente(long)
+comment4.params=
+comment4.target=Attente\ attenteDefaut()
+comment5.params=defaut
+comment5.target=void\ changeDefaut(long)
+numComments=6

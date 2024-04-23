@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=SuperieurA
+comment1.params=ref
+comment1.target=SuperieurA(int)
+comment2.params=
+comment2.target=int\ getRef()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment4.params=param
+comment4.target=boolean\ verif(int)
+numComments=5

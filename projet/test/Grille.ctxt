@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Grille
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Grill\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=
+comment1.target=Grille()
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=
+comment3.target=void\ CreateGrille_jeu()
+comment3.text=\r\n\ la\ grille\ de\ jeu\r\n
+comment4.params=
+comment4.target=void\ CreateGrille_calcule()
+comment4.text=\r\n\ la\ grille\ o\u00F9\ on\ fait\ le\ calcule\ pour\ le\ IA\r\n
+comment5.params=arene
+comment5.target=void\ affichage(int[][])
+numComments=6

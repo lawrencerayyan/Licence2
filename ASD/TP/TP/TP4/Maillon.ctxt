@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Maillon
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Maillon\ ici.\r\n\r\n\ @author\ (lawrence)\r\n\ @version\ (09/11/2022\ 12\:44\:05)\r\n
+comment1.params=val
+comment1.target=Maillon(int)
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Maillon\r\n
+comment2.params=val\ next
+comment2.target=Maillon(int,\ Maillon)
+comment3.params=
+comment3.target=Maillon\ getNext()
+comment3.text=\r\n\ \r\n\ Les\ accesseur\r\n
+comment4.params=
+comment4.target=int\ getInfo()
+comment5.params=next
+comment5.target=void\ setNext(Maillon)
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

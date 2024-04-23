@@ -1,0 +1,500 @@
+
+  
+(*Écrire la fonction ajout_num telle que sont type soit string−>(int−>string) et telle que le résultat de la fonction appliquée à une chaine de caractere puis à un entier retourne le premier argument et le second séparés par "_". C’est à dire que (ajout_num"u−pec"3 ) doit renvoyer la chaîne de caratères "u−pec_3".*)
+
+let ajout_num x y = x  ^ ( "_" ^ ( string_of_int y ))
+
+(*
+
+c
+d
+8
+
+*)
+
+
+                      (*
+                        type directive = TurnLeft | TurnRight | StepForward of int | StepBackward of int
+ 
+                        type path = directive list
+
+                        let sample_path = (StepForward 1 :: StepForward 2:: TurnLeft :: StepBackward 3 :: TurnLeft :: StepForward 1:: []) 
+
+(* val inverse : 𝚍𝚒𝚛𝚎𝚌𝚝𝚒𝚟𝚎 -> 𝚍𝚒𝚛𝚎𝚌𝚝𝚒𝚟𝚎 *)
+ 
+                        let inverse x = match x with
+                          | TurnLeft -> TurnRight
+                          | TurnRight -> TurnLeft
+                          | StepForward s -> StepBackward s
+                          | StepBackward s -> StepForward s
+
+                        let inverse = fun x -> match x with
+                          | TurnLeft -> TurnRight
+                          | TurnRight -> TurnLeft
+                          | StepForward s -> StepBackward s
+                          | StepBackward s -> StepForward s
+
+                        let inverse = function
+                          | TurnLeft -> TurnRight
+                          | TurnRight -> TurnLeft
+                          | StepForward s -> StepBackward s
+                          | StepBackward s -> StepForward s
+
+
+(* en python :
+>>> ", ".join(["1","2","3","4"])
+'1, 2, 3, 4'
+
+en Java : 
+jshell> String.join(", ","a","v","x")
+$1 ==> "a, v, x"
+                        *)
+
+                        let string_of_directive = function
+                          | TurnLeft -> "Tourner à gauche"
+                          | TurnRight -> "Tourner à droite"
+                          | StepForward s -> Printf.sprintf "Avancer de %d pas" s
+                          | StepBackward s -> Printf.sprintf "Reculer de %d pas" s
+
+                        let rec string_of_path = function
+                          | [] -> ""
+                          | [x] -> string_of_directive x (* [x] est la même chose que x::[] *)
+  (* je sais que dans le cas ci-dessous, t n'est pas [] *)
+                          | x::t -> (string_of_directive x)^" ; "^(string_of_path t)
+
+
+                        type orientation = North | South | East | West
+
+                        type hunter = int * int * orientation
+
+                        let string_of_hunter (x,y,o) = Printf.sprintf "(%d,%d,%s)" x y
+                            (match o with North -> "nord" | South -> "sud" | West -> "ouest" | East -> "est")
+
+                        let string_of_hunter = function
+                          | (x,y,North) -> Printf.sprintf "(%d,%d,nord)" x y
+                          | (x,y,South) -> Printf.sprintf "(%d,%d,sud)" x y
+                          | (x,y,East) -> Printf.sprintf "(%d,%d,est)" x y
+                          | (x,y,West) -> Printf.sprintf "(%d,%d,ouest)" x y
+
+(* let _ = Printf.printf "%s\n" (string_of_hunter (2,3,North)) *)
+
+                        let adv_x = function
+                          | North | South -> 0
+                          | West -> -1
+                          | East -> 1
+
+                        let adv_y = function
+                          | East | West -> 0
+                          | North -> 1
+                          | South -> -1
+
+                        let left = function
+                          | East -> North
+                          | West -> South
+                          | North -> West
+                          | South -> East
+
+                        let right = function
+                          | West -> North
+                          | East -> South
+                          | South -> West
+                          | North -> East
+
+(* let move (x,y,o) h = match h with *)
+                        let move (x,y,o) = function
+                          | TurnLeft -> (x,y,left o)
+                          | TurnRight -> (x,y,right o)
+                          | StepForward s -> (x+s*(adv_x o), y+s*(adv_y o), o)
+                          | StepBackward s -> (x-s*(adv_x o), y-s*(adv_y o), o)
+
+                        let finally h l = List.fold_left move h l
+
+                        let rec finally h = function
+                            [] -> h
+                          | x::t -> finally (move h x) t
+
+              
+                        open Graphics;;
+                        module DrawingType = struct
+
+                          let pi = 4.0 *.atan 1.0 
+                          let pi2 = (pi/.2.0)
+                          let pi4 = (pi/.4.0)
+                          let pi3 = (pi/.3.0)
+      
+
+                          type point = float*float
+
+                          type geom = 
+                            | Forward of float
+                            | Turn of float
+(*  | SetPencil of bool*)
+                            | Text of string
+
+                          type path = geom list
+               
+                          let string_of_point = fun (x,y) ->
+                            Printf.sprintf "(%g,%g)" x y
+               
+                          let string_of_geom = fun x ->
+                            match x with
+                            | Forward f -> "Forward "^(string_of_float f)
+                            | Turn f -> "Turn "^(string_of_float f)
+(*  | SetPencil b -> "SetPencil "^(string_of_bool b)
+| Text t -> "Text "^t*)
+
+                          let string_of_path l =
+                            let s = List.fold_left (fun s g ->
+                                let gs = string_of_geom g in
+                                if s="" then "["^gs else s^"; "^gs) "" l in
+                            s ^ "]"
+
+                        end
+
+
+
+
+                        open DrawingType
+
+                        let add (x1,y1) (x2,y2) = (x1+.x2,y1+.y2)
+                        let pt_of_point (x,y) =
+                          int_of_float (x *. (float (Graphics.size_x ())) /. 100.0),
+                          int_of_float (y *. (float (Graphics.size_y ())) /. 100.0)
+
+                        let set_color_progress f =
+                          let v = f *. float (1 lsl (8*2)) (*+. (1.0-.f) *. float (1 lsl (8*3)  )*)  in
+                          Graphics.set_color (int_of_float v)
+
+                        let set_color_progress_2 f =
+                          let g,b = if f<0.5 then f/.0.5 , (0.5 -.f) /. 0.5
+                            else (1.-.f) /. 0.5, (f-.0.5)/.0.5 in
+                          let r = int_of_float (f*. 256.)
+                          and g2 = int_of_float (g*. 256.)
+                          and b2 = int_of_float (b*. 256. ) in
+                          Printf.printf " r %i  g %i b %i" r g2 b2;
+                          print_newline ();
+                          Graphics.set_color ((r lsr 16) + (g2 lsr 8) + b2)  
+
+
+                        let display n l =
+                          Graphics.clear_graph ();
+                          Graphics.moveto 10 10;
+                          set_color_progress 0.0;
+                          let total_drawing = List.length l in
+                          Graphics.draw_string (Printf.sprintf "n=%i; nbgeom=%i" n total_drawing);
+                          let pt = (50.0,50.0) in
+                          let x1,y1 = pt_of_point pt in
+                          Graphics.moveto x1 y1;
+                          ignore (List.fold_left (fun (n,pencil,rho,pt) x ->
+                              if n mod 50000 =0 then Graphics.synchronize ();
+                              set_color_progress (float n /. (float total_drawing));
+                              match x with
+                              | Forward f -> 
+                                  let pt2 = add pt (f*.(cos rho), f*.(sin rho)) in
+                                  let x2,y2 = pt_of_point pt2 in
+                                  if pencil then Graphics.lineto x2 y2
+                                  else Graphics.moveto x2 y2;
+                                  (n+1,pencil,rho,pt2)
+                              | Turn r -> (n+1,pencil,rho+.r,pt)
+      (*| SetPencil b -> (n+1,b,rho,pt)*)
+                              | Text t -> 
+                                  Graphics.draw_string t;
+                                  let x,y = pt_of_point pt in
+                                  Graphics.moveto x y;
+                                  (n+1,pencil,rho,pt)
+                            ) (0,true,pi2,pt) l);
+                          Graphics.synchronize ()
+
+
+                        let rec iter f n =
+                          let _ = display n (f n) in
+                          ignore (Graphics.wait_next_event [Graphics.Button_down; Graphics.Key_pressed]);
+                          set_color_progress 0.0;
+                          Graphics.moveto 200 10;
+                          Graphics.draw_string "En cours de calcul ...";
+                          Graphics.synchronize ();
+                          iter f (n+1)
+
+                        let dessine =
+                          Graphics.open_graph " 500x500";
+                          Graphics.auto_synchronize false;
+                          try iter draw 4 with Graphics.Graphic_failure _ -> ()
+
+                                                     
+
+
+
+                        open DrawingType
+
+                        let add (x1,y1) (x2,y2) = (x1+.x2,y1+.y2)
+                        let pt_of_point (x,y) =
+                          int_of_float (x *. (float (Graphics.size_x ())) /. 100.0),
+                          int_of_float (y *. (float (Graphics.size_y ())) /. 100.0)
+
+                        let set_color_progress f =
+                          let v = f *. float (1 lsl (8*2)) (*+. (1.0-.f) *. float (1 lsl (8*3)  )*)  in
+                          Graphics.set_color (int_of_float v)
+
+                        let set_color_progress_2 f =
+                          let g,b = if f<0.5 then f/.0.5 , (0.5 -.f) /. 0.5
+                            else (1.-.f) /. 0.5, (f-.0.5)/.0.5 in
+                          let r = int_of_float (f*. 256.)
+                          and g2 = int_of_float (g*. 256.)
+                          and b2 = int_of_float (b*. 256. ) in
+                          Printf.printf " r %i  g %i b %i" r g2 b2;
+                          print_newline ();
+                          Graphics.set_color ((r lsr 16) + (g2 lsr 8) + b2)  
+
+
+                        let display n l =
+                          Graphics.clear_graph ();
+                          Graphics.moveto 10 10;
+                          set_color_progress 0.0;
+                          let total_drawing = List.length l in
+                          Graphics.draw_string (Printf.sprintf "n=%i; nbgeom=%i" n total_drawing);
+                          let pt = (50.0,50.0) in
+                          let x1,y1 = pt_of_point pt in
+                          Graphics.moveto x1 y1;
+                          ignore (List.fold_left (fun (n,pencil,rho,pt) x ->
+                              if n mod 50000 =0 then Graphics.synchronize ();
+                              set_color_progress (float n /. (float total_drawing));
+                              match x with
+                              | Forward f -> 
+                                  let pt2 = add pt (f*.(cos rho), f*.(sin rho)) in
+                                  let x2,y2 = pt_of_point pt2 in
+                                  if pencil then Graphics.lineto x2 y2
+                                  else Graphics.moveto x2 y2;
+                                  (n+1,pencil,rho,pt2)
+                              | Turn r -> (n+1,pencil,rho+.r,pt)
+      (*| SetPencil b -> (n+1,b,rho,pt)*)
+                              | Text t -> 
+                                  Graphics.draw_string t;
+                                  let x,y = pt_of_point pt in
+                                  Graphics.moveto x y;
+                                  (n+1,pencil,rho,pt)
+                            ) (0,true,pi2,pt) l);
+                          Graphics.synchronize ()
+
+
+                        let rec iter f n =
+                          let _ = display n (f n) in
+                          ignore (Graphics.wait_next_event [Graphics.Button_down; Graphics.Key_pressed]);
+                          set_color_progress 0.0;
+                          Graphics.moveto 200 10;
+                          Graphics.draw_string "En cours de calcul ...";
+                          Graphics.synchronize ();
+                          iter f (n+1)
+
+                        let dessine =
+                          Graphics.open_graph " 500x500";
+                          Graphics.auto_synchronize false;
+                          try iter Draw.draw 0 with Graphics.Graphic_failure _ -> ()
+
+                        let pi = 4.0 *.atan 1.0 
+                        let pi2 = (pi/.2.0)
+                        let pi4 = (pi/.4.0)
+                        let pi3 = (pi/.3.0)
+      
+
+                        type point = float*float
+
+                        type geom = 
+                          | Forward of float
+                          | Turn of float
+(*  | SetPencil of bool *)
+                          | Text of string
+
+                        type path = geom list
+               
+                        let string_of_point = fun (x,y) ->
+                          Printf.sprintf "(%g,%g)" x y
+               
+                        let string_of_geom = fun x ->
+                          match x with
+                          | Forward f -> "Forward "^(string_of_float f)
+                          | Turn f -> "Turn "^(string_of_float f)
+(*  | SetPencil b -> "SetPencil "^(string_of_bool b)*)
+                          | Text t -> "Text "^t
+
+                        let string_of_path l =
+                          let s = List.fold_left (fun s g ->
+                              let gs = string_of_geom g in
+                              if s="" then "["^gs else s^"; "^gs) "" l in
+                          s ^ "]"
+
+                        val pi : float
+                        val pi2 : float
+                        val pi3 : float
+                        val pi4 : float
+  
+                        type point = float * float
+                        type geom =
+                          | Forward of float
+                          | Turn of float
+(*  | SetPencil of bool*)
+                          | Text of string
+
+                        type path = geom list
+                        val string_of_point : point -> string
+                        val string_of_geom : geom -> string
+                        val string_of_path : path -> string
+
+  
+                        include DrawingType
+      
+                        let simple_triangle =
+                          let pi23 = 2.0 *. pi /. 3.0 in
+                          Forward 25.0 :: Turn pi23 ::
+                          Forward 25.0 :: Turn pi23 ::
+                          Forward 25.0 :: []
+
+                        let draw = fun _ -> simple_triangle
+                                            *)
+  
+(*renvoie une liste contenant n elements tous egaux a x. *)
+let rec fq_4 n x = match n with 
+  | [] -> []
+  | h :: t -> if h = x then h :: fq_4 t x else fq_4 t x
+          
+          
+
+          (* fibo *)
+
+let rec fibo n = match n with
+  |0->0
+  |1->1
+  |_->fibo(n-1)+fibo(n-2);;
+
+ (* fibo en terminale*) 
+let fibo x =
+  let rec fib x acc1 acc2 =
+    if x = 0 then acc2
+    else fib (x-1) acc2 (acc1+acc2)
+  in fib x 1 0;;
+
+ (* pgcd fonction terminale*)
+let pgcd x y =
+  let rec pg x y =
+    if (x mod y = 0) then y
+    else pg y (x mod y)
+  in pg x y;;
+
+(*Nombre de Chiffre dans un Nombre*)
+let rec nb_chiffres x =
+  if x / 10 = 0 then 1
+  else  1 + nb_chiffres (x/10);;
+
+(*Nombre de Chiffre dans un Nombre terminale*) 
+let nb_chiffres x =
+  let rec nbch x acc =
+    if x / 10 = 0 then acc
+    else nbch (x/10) (acc+1)
+  in nbch x 1;;
+  
+(*puissance*)
+let rec pow x y =
+  if y = 0 then 1
+  else x * pow x (y-1);;
+
+(* puisasnce terminal*)
+let pow x y =
+  let rec p x y acc =
+    if y = 0 then acc
+    else p x (y-1) (acc*x)
+  in p x y 1;;
+
+(*Nombre de diviseurs*)
+let rec nbdiv x div =
+  if div = 1 then 1
+  else if (x mod div) = 0 then 1 + (nbdiv x (div-1))
+  else (nbdiv x (div-1)) ;;
+
+(*Nombre premier*)
+let est_parfait x = (* x est la valeur que l'on veut vérifier. *)
+  let rec parfait x y acc = (* y représente les diviseurs potentiels de x. *)
+    if y = x then acc (* acc accumule la somme des diviseurs, donc de y. *)
+    else if (x mod y = 0) then parfait x (y+1) (acc+y)
+    else parfait x (y+1) acc
+  in parfait x 1 0 = x;;
+
+(* longueur d une liste*)
+let rec longueur_liste liste = match liste with
+  | [] -> 0
+  | head::tail -> 1 + longueur_liste tail;;
+
+(* Somme des entiers d une listes*)
+let rec somme_liste l =
+  if l = [] then 0
+  else (List.hd l) + somme_liste (List.tl l);;
+
+(*miroir liste*)
+let rec mirroir l = match l with
+  |[] -> []
+  |e::f -> (mirroir f)@[e];;
+
+(* maximum de liste d entier*)
+let max x y = if x < y then y else x;;
+
+let rec liste_max l = match l with
+  |[x] -> x
+  |t::q -> max t (liste_max q)
+  |[] -> failwith "Liste vide!";;
+
+(* appartenance d un element dans la liste non tiée fonction terminal*)
+let appartient x l =
+  let rec recher x l acc = match l with
+    |[] -> acc
+    |e::f -> if e = x then true else recher x f (false || acc)
+  in recher x l false
+;;
+(* appartenance d un element dans la liste triée ordre croissant fonction terminal*)
+let rec appartient x l = match l with
+  |[] -> false
+  |e::f -> if e > x then false
+      else if e = x then true
+      else appartient x f ;;
+
+(* enlever le premier element x de la liste*)
+let rec enleve_element x l = match l with
+  |[] -> []
+  |e::f -> if e = x then f
+      else e::(enleve_element x f)
+;;
+  
+      
+  (* enlever tout les elemnts x de la liste*)
+let rec enleve_tous_elements x l = match l with
+  |[] -> []
+  |e::f ->
+      if e = x then enleve_tous_elements x f
+      else e::(enleve_element x f)
+;;
+
+(*acces dun element dans la liste*)
+
+let acces l i =
+  if (i <= 0) || (i > List.length l) then failwith "En dehors de la liste !"
+  else let rec aux l i =
+         if i = 1 then List.hd l
+         else aux (List.tl l) (i-1)
+    in aux l i
+;;
+
+(*liste de lsite*)
+let list_list l =
+  let rec aux l acc acc2 = match l with
+    |[] -> acc2@[acc]
+    |e::f -> aux f (acc@[e]) (acc2@[acc])
+  in aux l [] []
+;;
+
+(*(*minmum de deux listes*)
+  let rec partiel l1 l2 = match (l1,l2) with
+    |([],[]) -> []
+    |( (a,b)::c, (d,e)::f ) -> (a,b,e)::(partiel c f);;*)
+
+(*supprime doublon*)
+let rec doublon l = match l with
+  |[] -> []
+  |e::f -> if appartient e f then doublon f else e::(doublon f);;
+

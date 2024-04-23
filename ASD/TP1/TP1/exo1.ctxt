@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=exo1
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=n\ tab
+comment2.target=void\ ex1(int,\ int[])
+comment3.params=tab
+comment3.target=void\ random(int[])
+comment4.params=tab
+comment4.target=void\ affichageInve(int[])
+comment5.params=tab\ indexe
+comment5.target=void\ affichageRec(int[],\ int)
+comment6.params=tab\ indexe
+comment6.target=void\ affichageInveRec(int[],\ int)
+comment7.params=tab
+comment7.target=void\ affichage(int[])
+comment8.params=
+comment8.target=exo1()
+numComments=9
