@@ -15,7 +15,7 @@ Bienvenue sur mon dépôt GitHub contenant mes travaux réalisés lors de ma deu
 - Langages : Java, Ocaml, C , javaScript 
 
 
-## Compétences Acquises
+## Détail des Cours
    
 - **UE Programmation**
   - **Projet de programmation**
